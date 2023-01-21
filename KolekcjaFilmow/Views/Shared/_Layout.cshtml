@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KolekcjaFilmow</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KolekcjaFilmow.styles.css" asp-append-version="true" />
+</head>
+<body style="background-color:#F0EFEA">
+    <header>
+        <nav class="nav justify-content-center navbar-light mb-3 border-bottom" style="background-color:#DAB797;">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kolekcja Filmów</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Film" asp-action="WyswietlListeFilmow">Lista Filmów</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Film" asp-action="DodajFilm">Dodaj Film</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Kategoria" asp-action="DodajKategorie">Dodaj Kategorię Filmu</a>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color:#DAD4C7">
+        <div class="container">
+            FilipTworkowski - Kolekcja Filmów - Zaliczenie
+        </div>
+    </footer >
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

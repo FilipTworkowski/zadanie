@@ -1,0 +1,34 @@
+﻿@model Filmy
+@{
+    ViewData["Title"] = "Edytuj Film";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Dodaj Film</h1>
+</div>
+<div class="mx-auto col-4 ">
+    <form asp-controller="Film" asp-action="EdytowanieFilmu" method="post">
+        <input type="hidden" value="@ViewBag.film.IdFilm" asp-for="IdFilm" />
+        <div class="form-group pb-3">
+            <label for="NazwaFilmu">Nazwa</label>
+            <input type="text" class="form-control" id="NazwaFilmu" asp-for="Tytul" value="@ViewBag.film.Tytul" />
+        </div>
+        <div class="form-group pb-3">
+            <label for="Rezyser">Reżyser</label>
+            <input type="text" class="form-control" id="Rezyser" asp-for="Rezyser" value="@ViewBag.film.Rezyser" />
+        </div>
+        <div class="form-group pb-3">
+            <label for="Gatunek">Gatunek</label>
+            <select class="form-control" id="Gatunek" asp-for="IdGatunek">
+                <option value="@ViewBag.Kategoria.IdKategoria" selected>@ViewBag.Kategoria.Nazwa</option>
+                @{
+                    foreach (Kategorie kategorie in ViewBag.Gatunek)
+                    {
+                        <option value="@kategorie.IdKategoria">@kategorie.Nazwa</option>
+                    }
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+    </form>
+</div>

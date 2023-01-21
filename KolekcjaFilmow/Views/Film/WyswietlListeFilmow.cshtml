@@ -1,0 +1,27 @@
+﻿<div class="text-center mb-5">
+    <h1 class="display-4">Lista Filmów</h1>
+</div>
+@model Filmy
+@{
+    ViewData["Title"] = "Lista Filmów";
+}
+
+<div class="mx-auto col-4 ">
+    <ul class="list-group list-group-flush">
+
+        @{
+            int a = 1;
+            foreach (Filmy filmy in ViewBag.Filmy)
+            {
+                    <li class="list-group-item">
+                        <p style="float:left" class="pt-2 mb-2">@filmy.Tytul : @filmy.Rezyser</p>
+                        <form style="float:right" method="post" asp-controller="Film" asp-action="EdytujFilm">
+                            <input type="hidden" asp-for="IdFilm" value="@filmy.IdFilm"/>
+                            <button type="submit" class="btn btn-primary">Edytuj</button>
+                        </form>
+                    </li>
+                a++;
+            }
+        }
+    </ul>
+</div>
